@@ -1,0 +1,17 @@
+_BASE_: ../maskformer2_R50_bs16_160k.yaml
+MODEL:
+  BACKBONE:
+    NAME: "D2MixResTransformer"
+  MIXRESENC:
+    PRETRAIN_IMG_SIZE: 512
+    PATCH_SIZE: 32
+    EMBED_DIMS: [256, 128, 128, 64]
+    DEPTHS: [12, 4, 4, 12]
+    NUM_HEADS: [16, 8, 8, 4]
+    SPLIT_RATIO: 4
+    DROP_PATH_RATE: 0.0
+    DROP_RATE: 0.0
+    N_SCALES: 4
+  WEIGHTS: "swin_tiny_patch4_window7_224.pkl"
+  PIXEL_MEAN: [123.675, 116.280, 103.530]
+  PIXEL_STD: [58.395, 57.120, 57.375]

@@ -311,12 +311,13 @@ def main(args):
         return res
 
     trainer = Trainer(cfg)
-    trainer.resume_or_load(resume=args.resume)
+    #trainer.resume_or_load(resume=args.resume)
     return trainer.train()
 
 
 if __name__ == "__main__":
     args = default_argument_parser().parse_args()
+    args.resume = False
     print("Command Line Args:", args)
     launch(
         main,
